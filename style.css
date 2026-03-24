@@ -1,217 +1,209 @@
-/* --- Global Styles --- */
 :root {
     --neon-cyan: #00f2ff;
     --neon-purple: #7000ff;
-    --bg-dark: #050a14;
-    --glass-bg: rgba(255, 255, 255, 0.05);
+    --bg-dark: #02060e;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 body {
     background-color: var(--bg-dark);
-    color: #ffffff;
-    font-family: 'Rajdhani', sans-serif; /* Clean tech font */
+    color: white;
     line-height: 1.6;
-    overflow-x: hidden;
+}
+
+/* --- Header & Big Logo --- */
+.pwrg-header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 2px solid var(--neon-cyan);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+}
+
+.pwrg-logo {
+    width: 180px; /* Logo perusa theriyum */
+    height: auto;
+    display: block;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
 }
 
 /* --- Hero Section --- */
 .hero {
-    height: 100vh;
+    height: 85vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    background: radial-gradient(circle at center, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+    padding: 20px;
 }
 
 .main-title {
+    font-size: clamp(3rem, 10vw, 5.5rem);
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(3rem, 10vw, 6rem);
-    letter-spacing: 10px;
-    text-transform: uppercase;
-    text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+    letter-spacing: 5px;
     margin-bottom: 10px;
 }
 
-.main-title span {
-    color: var(--neon-purple);
-    text-shadow: 0 0 20px var(--neon-purple);
-}
-
-.sub-heading {
-    font-size: 1.5rem;
-    letter-spacing: 4px;
-    opacity: 0.8;
-}
+.main-title span { color: var(--neon-purple); text-shadow: 0 0 15px var(--neon-purple); }
 
 .dept-name {
-    font-size: 1.2rem;
     color: var(--neon-cyan);
-    margin: 20px 0;
+    font-size: 1.4rem;
     font-weight: bold;
-}
-
-/* --- Buttons --- */
-.hero-btns {
-    margin-top: 40px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-button {
-    padding: 15px 35px;
-    font-size: 1rem;
-    font-weight: bold;
-    font-family: 'Orbitron', sans-serif;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.4s;
     text-transform: uppercase;
 }
 
-.reg-btn {
-    background: var(--neon-cyan);
-    border: none;
-    color: #000;
-}
-
-.reg-btn:hover {
-    box-shadow: 0 0 30px var(--neon-cyan);
-    transform: translateY(-5px);
-}
-
-.explore-btn {
-    background: transparent;
-    border: 2px solid var(--neon-cyan);
-    color: var(--neon-cyan);
-}
-
-.explore-btn:hover {
-    background: rgba(0, 242, 255, 0.1);
-    box-shadow: 0 0 20px var(--neon-cyan);
-}
-
-/* --- Event Sections --- */
-.event-container {
-    padding: 100px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+/* --- Event Grid (The Boxes) --- */
+.events-section {
+    padding: 80px 5%;
 }
 
 .section-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 50px;
     color: var(--neon-cyan);
+    letter-spacing: 4px;
+    margin: 40px 0;
+    font-size: 2rem;
+    text-transform: uppercase;
 }
 
-.non-tech-title {
-    color: var(--neon-purple);
-}
-
-.events-grid {
+.event-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
-/* --- Glassmorphism Event Cards --- */
 .event-card {
-    background: var(--glass-bg);
-    border: 1px solid rgba(0, 242, 255, 0.3);
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    border-radius: 12px;
     overflow: hidden;
-    backdrop-filter: blur(10px);
-    transition: 0.5s;
-}
-
-.event-card.non-tech {
-    border-color: rgba(112, 0, 255, 0.3);
+    transition: 0.4s;
+    text-align: center;
 }
 
 .event-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
     border-color: var(--neon-cyan);
-    box-shadow: 0 0 40px rgba(0, 242, 255, 0.2);
+    box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
 }
 
-.event-card.non-tech:hover {
-    border-color: var(--neon-purple);
-    box-shadow: 0 0 40px rgba(112, 0, 255, 0.2);
-}
-
-.event-img {
+.event-card img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
-    filter: grayscale(40%);
-    transition: 0.5s;
 }
 
-.event-card:hover .event-img {
-    filter: grayscale(0%);
-}
-
-.card-info {
-    padding: 25px;
-    text-align: center;
-}
-
-.card-info h3 {
-    font-family: 'Orbitron', sans-serif;
-    margin-bottom: 15px;
+.card-title {
+    padding: 20px;
     font-size: 1.3rem;
-}
-
-/* --- Footer --- */
-.footer {
-    padding: 80px 5%;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.3);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.contact-grid {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    margin: 40px 0;
-    flex-wrap: wrap;
-}
-
-.role {
-    color: var(--neon-cyan);
-    text-transform: uppercase;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.name {
-    font-size: 1.3rem;
-    margin-top: 5px;
+/* Button Styling */
+.reg-btn {
+    background: var(--neon-cyan);
+    color: black;
+    border: none;
+    padding: 18px 40px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-hr {
-    border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 30px auto;
-    width: 60%;
+.reg-btn:hover {
+    box-shadow: 0 0 20px var(--neon-cyan);
+    transform: scale(1.05);
+}
+/* --- Rules & Regulations AETHRYX Style --- */
+.rules-section {
+    padding: 100px 10%;
+    background: linear-gradient(to bottom, transparent, #050a14);
 }
 
-.copyright {
-    opacity: 0.5;
-    font-size: 0.9rem;
+.rules-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
 }
 
-/* --- Smooth Scrolling Mobile Fix --- */
-@media (max-width: 768px) {
-    .contact-grid { gap: 30px; }
+.rule-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 4px solid var(--neon-purple);
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.rule-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(112, 0, 255, 0.1));
+    z-index: -1;
+}
+
+.rule-card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--neon-cyan);
+    box-shadow: -10px 0 20px rgba(0, 242, 255, 0.1);
+}
+
+.rule-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px var(--neon-purple));
+}
+
+.rule-text h3 {
+    color: var(--neon-cyan);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.rule-text p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
 }
